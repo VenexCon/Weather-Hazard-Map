@@ -1,0 +1,91 @@
+//imports
+@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+
+//Variables
+$background:#071013;
+$primary:#187795;
+$contrast: #F0C808;
+$detail: #B7B6C1; 
+$detail-2:#A72608;
+//consts
+
+
+//styling Starts Here
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Asap', sans-serif;
+}
+body{
+    margin: auto;
+    background-color: $primary;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Nav Bar - Common  */
+nav{
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: $primary;
+    width:100%;
+    height: 5vh;
+
+    .logo-container{
+        display: flex;
+        gap: 0.25rem;
+
+        .logo {
+            font-size: larger;
+            color: $contrast;
+            font-weight: bold;
+        }
+    }
+}
+/* Aside-right */
+ .nav-links {
+     border: 2px solid $detail;
+     position: absolute;
+     right:-100%;
+     height: 90vh;
+     background-color: $detail;
+     transition: ease-in, 0.4s;
+
+     &.active {
+        right: 0;
+     }
+
+     ul {
+         display: flex;
+         flex-direction: column;
+         list-style: none;
+         align-items: center;
+         width: 20vw;
+         align-items: center;
+         justify-content: center;
+
+         &:first-child {
+            margin-top: 1rem;
+         }
+
+         li {
+            display: flex;
+            align-items: center;
+            color: $primary;
+            width: 100%;
+            height: 3rem;
+            transition: 0.4s;
+
+            &:hover {
+                background-color: $detail-2;
+                color: $contrast;
+                cursor: pointer;
+            }
+         }
+     }
+ }

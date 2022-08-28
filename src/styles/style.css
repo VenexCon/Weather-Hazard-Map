@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Asap&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Asap", sans-serif;
+}
+
+body {
+  margin: auto;
+  background-color: #187795;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Nav Bar - Common  */
+nav {
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  background-color: #187795;
+  width: 100%;
+  height: 5vh;
+}
+nav .logo-container {
+  display: flex;
+  gap: 0.25rem;
+}
+nav .logo-container .logo {
+  font-size: larger;
+  color: #F0C808;
+  font-weight: bold;
+}
+
+/* Aside-right */
+.nav-links {
+  border: 2px solid #B7B6C1;
+  position: absolute;
+  right: -100%;
+  height: 90vh;
+  background-color: #B7B6C1;
+  transition: ease-in, 0.4s;
+}
+.nav-links.active {
+  right: 0;
+}
+.nav-links ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  align-items: center;
+  width: 20vw;
+  align-items: center;
+  justify-content: center;
+}
+.nav-links ul:first-child {
+  margin-top: 1rem;
+}
+.nav-links ul li {
+  display: flex;
+  align-items: center;
+  color: #187795;
+  width: 100%;
+  height: 3rem;
+  transition: 0.4s;
+}
+.nav-links ul li:hover {
+  background-color: #A72608;
+  color: #F0C808;
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */

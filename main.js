@@ -1,0 +1,1 @@
+(()=>{document.querySelector(".forecast");const o=()=>"03ad2da940f7cc2ddc52d896bfa4deb4",t=async t=>{try{const a=await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${t}&APPID=${o()}&units=metric`),e=await a.json();console.log(e)}catch(o){console.log(o)}};t("london"),t("new york")})();

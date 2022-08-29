@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./icons/favicon-16x16.png">
     <link rel="manifest" href="./icons/site.webmanifest">
+    <script src="https://kit.fontawesome.com/a587b37b46.js" crossorigin="anonymous"></script>
 
 
     <title>Weather Hazards</title>
@@ -27,14 +28,52 @@
         </nav>
     </header>
     <!-- Aside Link Pop-out -->
-    <aside class="nav-links">
+    <aside class="nav-links" tabindex="-1">
         <ul>
             <li><a href="#">Guide</a></li>
             <li><a href="#">Repo</a></li>
             <li><a href="#">References</a></li>
         </ul>
     </aside>
+
+    <!-- SECTION 1 -->
+    <section class="search-container">
+
+        <label for="searchBox">
+            <input type="text" required id="searchBox" class="searchBox" placeholder="Search Location" pattern="[a-zA-Z0-9-]+">
+        </label>
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    
+    </section>
    
+    <section class="main">
+        <div class="title"><h1>Location</h1></div>
+        <div class="description"><h3>Description of conditions</h3></div>
+        <div class="temp-container">
+            <h1 id="average">230C</h1>
+            <div class="medians">
+                <h3 class="temp-high">high:29</h3>
+                <h3 class="temp-low">low:18</h3>
+            </div>
+            <div class="weather-icons">Weather Icon Here</div>
+
+        </div>
+
+
+        <!-- Hazard Section -->
+        <div class="hazards-container">
+            <div class="hazard-list">
+                <div class="item1">1</div>
+                <div class="item2">2</div>
+                <div class="item3">3</div>
+                <div class="item4">4</div>
+                <div class="item1">5</div>
+                <div class="item2">6</div>
+                <div class="item3">7</div>
+                <div class="item4">8</div>
+            </div>
+        </div>
+    </section>
 
     
 </body>

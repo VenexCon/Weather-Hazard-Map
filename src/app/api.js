@@ -16,9 +16,26 @@ const fetchWeather = async (location) => {
     ); // fetch returns a promise
     const data = await response.json(); //.json() returns a promise.
     console.log(data);
+    return data;
   } catch (error) {
     console.log(error);
   }
 };
+
+const getInput = (e) => {
+  e.preventDefault();
+  let input = document.querySelector(".searchBox").value;
+  return input;
+};
+
+const form = document.querySelector(".search-container");
+form.addEventListener("submit", (e) => {
+  fetchWeather(getInput(e));
+});
+
+//do i need ot return it here? the function needs to be called
+//pass that to a object, that can be destructured.
+//this can all happen in the EL.
+//need a function that takes the object resposne, destructure it, and then assign it to the dom Object.
 
 export { fetchWeather };

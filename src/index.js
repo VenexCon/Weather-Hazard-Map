@@ -4,4 +4,3 @@ import { fetchWeather } from "./app/api";
 
 navButton();
 fetchWeather(`london`);
-fetchWeather(`new york`);

@@ -248,6 +248,7 @@ nav{
         height: 30%;
         align-self: flex-start;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
 
         >* {

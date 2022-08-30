@@ -21,6 +21,7 @@ const fetchWeather = async (location) => {
     return domAppend(data); // if you try and return data, it is called prior to awaiting
   } catch (error) {
     console.log(error);
+    alert(`Location Not Found`);
   }
 };
 

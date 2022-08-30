@@ -222,43 +222,77 @@ nav{
     /* Weather Section */
     /* -------------- */
     border: 2px solid $detail-2;
-    width: 80%;
+    min-width: 80%;
+    width: clamp(80%,80%,80%);
     margin: auto;
-    height: 60vh;
+    min-height:clamp(60vh, 60vh, 60vh);
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     align-items: center;
 
     .title{
-        border: 2px solid black;
         width: 100%;
         text-align: center;
+        font-size: larger;
+        font-weight: bold;
+        color: $contrast;
     }
 
     .description{
-        border: 2px solid blue;
         width: 100%;
         text-align: center;
+        color: $contrast;
+        font-size: large;
     }
 
     .temp-container{
-        border: 2px solid red;
         width: 100%;
         height: 30%;
         align-self: flex-start;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
 
-        >* {
-            border: 2px dashed blue;
+        & > * {
+            min-width: 4rem;
+            flex-grow: 1;
+            flex-basis: 33%;
+            text-align: center;
         }
+
+        .average {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            :first-child{
+                font-size: larger;
+                font-weight: bold;
+                color: $detail;
+            }
+
+            :nth-child(2) {
+                font-weight: bold;
+                font-size: larger;
+                flex-grow: 1;
+            }
+        }
+
 
         .medians{
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+
+            h3 > p {
+                color: $detail;
+            }
+        }
+
+        .weather-icons {
+            display: flex;
+            justify-content: center;
+            justify-items: center;
         }
     }
 
@@ -269,16 +303,22 @@ nav{
     .hazards-container{
         border:2px solid black;
         width: 100%;
+        display: flex;
+        height:33vh;
+        flex-wrap: wrap;
 
         .hazard-list{
             border: 2px solid red;
             display: flex;
             flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
 
             >* {
                 border: dashed 2px yellow;
                 flex-grow: 1;
-                min-width: 25%;
+                width:clamp(4rem, 25%, 100%);
+                flex-wrap: wrap;
             }
         }
     }

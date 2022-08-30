@@ -40,21 +40,39 @@
     
         <form action="#" class="search-container">
             <label for="searchBox">
-                <input type="text" required id="searchBox" class="searchBox" onfocus="this.value=''" placeholder="Search Location" pattern="[a-zA-Z0-9-]+">
+                <input type="text" required id="searchBox" class="searchBox" onfocus="this.value=''" placeholder="Search Location">
             </label>
             <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
    
     <section class="main">
-        <div class="title"><h1>Location</h1></div>
-        <div class="description"><h3>Description of conditions</h3></div>
+        <div class="title"><h1></h1></div>
+        <div class="description"><h3></h3></div>
+        <div class="data-time">13:47pm</div>
         <div class="temp-container">
-            <h1 id="average">230C</h1>
-            <div class="medians">
-                <h3 class="temp-high">high:29</h3>
-                <h3 class="temp-low">low:18</h3>
+            <div class="average">
+                <p>Average:</p>
+                <p id="averageBox"></p>
             </div>
-            <div class="weather-icons">Weather Icon Here</div>
+            <div class="medians">
+                <h3 class="temp-high">
+                    <p>High:</p>
+                    <span class="data-high"></span>
+                </h3>
+                <h3 class="temp-low">
+                    <p>Low:</p>
+                    <span class="data-low"></span>
+                </h3>
+                <h3 class="feels-like">
+                    <p>Feels-like:</p>
+                    <span class="data-feels"></span>
+                </h3>
+                <h3 class="humidity">
+                    <p>Humidity:</p>
+                    <span class="data-humid"></span>
+                </h3>
+            </div>
+            <div class="weather-icons"><img src="#" alt="Weather Icon" class="weather-img"></div>
 
         </div>
 

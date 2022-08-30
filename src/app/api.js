@@ -1,3 +1,5 @@
+import { domAppend } from "./dom";
+
 const keyStorage = (() => {
   let API = `03ad2da940f7cc2ddc52d896bfa4deb4`;
 
@@ -14,9 +16,9 @@ const fetchWeather = async (location) => {
       `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${keyStorage.viewKey()}&units=metric`,
       { mode: "cors" }
     ); // fetch returns a promise
-    const data = await response.json(); //.json() returns a promise.
+    let data = await response.json(); //.json() returns a promise.
     console.log(data);
-    return data;
+    return domAppend(data); // if you try and return data, it is called prior to awaiting
   } catch (error) {
     console.log(error);
   }

@@ -1,4 +1,5 @@
 import { fetchWeather } from "./api";
+import format from "date-fns/format";
 
 const navButton = () => {
   const Btn = document.querySelector(".nav-btn");
@@ -10,6 +11,13 @@ const navButton = () => {
     btnImg.classList.toggle("active");
   });
 };
+
+const formatUnixDate = (string) => {
+  let newdate = new Date(string * 1000);
+  newdate.toLocaleString();
+  return format(newdate, `k:m dd/MM/yyyy`);
+};
+window.navigator.geolocation.getCurrentPosition(console.log, console.log);
 
 //DOM Object for assigning and destructuring the Json.response.
 
@@ -27,6 +35,9 @@ const domAppend = (data) => {
   const description = document.querySelector(".description");
   description.innerText = `${data.weather[0].description}`;
 
+  //calls formatDate func and returns local time
+  const timeStamp = document.querySelector(".data-time");
+  timeStamp.innerText = `Time Requested: ${formatUnixDate(data.dt)}`;
   //sets average, high & low temp
   const average = document.querySelector("#averageBox");
   const high = document.querySelector(".data-high");

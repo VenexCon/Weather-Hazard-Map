@@ -7,10 +7,12 @@ $primary:#187795;
 $contrast: #F0C808;
 $detail: #B7B6C1; 
 $detail-2:#A72608;
+$ice: #8ac9df;
 //consts
 
 
 //styling Starts Here
+
 *{
     padding:0;
     margin: 0;
@@ -319,6 +321,25 @@ nav{
                 flex-grow: 1;
                 width:clamp(4rem, 25%, 100%);
                 flex-wrap: wrap;
+            }
+
+            .hazard-choice{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 50%;
+                    border: 2px solid red;
+                    color: #F0C808;
+                }
+
+                i {
+                    color: $ice ;
+                    font-size: 4rem;
+                    border: 2px solid black;
+                }
             }
         }
     }

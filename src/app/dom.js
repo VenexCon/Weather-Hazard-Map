@@ -20,7 +20,6 @@ const formatUnixDate = (string) => {
 window.navigator.geolocation.getCurrentPosition(console.log, console.log);
 
 //DOM Object for assigning and destructuring the Json.response.
-
 const domAppend = (data) => {
   const degree = `\u00B0C`;
   const farenheight = `\u00B0`;
@@ -54,6 +53,29 @@ const domAppend = (data) => {
   //sets weather Icon
   const weatherIcon = document.querySelector(".weather-img");
   weatherIcon.src = `http://openweathermap.org/img/wn/${dataIcon}@2x.png`;
+};
+
+//Hazard Selection Funcs
+const appendNewHazard = (element) => {
+  const parent = document.querySelector(".hazard-list");
+  parent.appendChild(element);
+};
+
+const isHigh = (value) => {
+  if (value > 20) {
+    //create element with upwards temp
+    //return new element & text, append to hazardlist with func
+  } else if (value < 10) {
+    //show low arrow
+  }
+};
+
+const hazardChoices = (data) => {
+  const average = document.querySelector("#averageBox");
+  const high = document.querySelector(".data-high");
+  const low = document.querySelector(".data-low");
+  const feelsLike = document.querySelector(".data-feels");
+  const humidity = document.querySelector(".data-humid");
 };
 
 export { navButton, domAppend };

@@ -17,10 +17,41 @@ const formatUnixDate = (string) => {
   newdate.toLocaleString();
   return format(newdate, `k:m dd/MM/yyyy`);
 };
-window.navigator.geolocation.getCurrentPosition(console.log, console.log);
+
+const removeHazards = () => {
+  parent = document.querySelector(".hazard-list");
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
+  }
+};
+
+const isHigh = (value) => {
+  //pass in the data response from fetchWeather();
+  if (value > 20) {
+    const highImg = document.createElement("i");
+    highImg.setAttribute("class", "fa-solid fa-temperature-arrow-up");
+    appendNewHazard(highImg);
+  } else if (value < 10) {
+    const lowImg = document.createElement("i");
+    lowImg.setAttribute("class", "fa-solid fa-temperature-arrow-down");
+    return appendNewHazard(lowImg);
+  }
+};
+
+const isSunny = (value, time) => {
+  if (value < 50) {
+    const sunny = document.createElement("i");
+    sunny.setAttribute("class", "fa-solid fa-sun");
+    appendNewHazard(sunny);
+  }
+};
+//create more funcs here,
 
 //DOM Object for assigning and destructuring the Json.response.
 const domAppend = (data) => {
+  removeHazards();
+  isHigh(data.main.temp);
+  isSunny(data.clouds.all);
   const degree = `\u00B0C`;
   const farenheight = `\u00B0`;
   const dataIcon = `${data.weather[0].icon}`;
@@ -58,16 +89,10 @@ const domAppend = (data) => {
 //Hazard Selection Funcs
 const appendNewHazard = (element) => {
   const parent = document.querySelector(".hazard-list");
-  parent.appendChild(element);
-};
-
-const isHigh = (value) => {
-  if (value > 20) {
-    //create element with upwards temp
-    //return new element & text, append to hazardlist with func
-  } else if (value < 10) {
-    //show low arrow
-  }
+  const hazardChoice = document.createElement("div");
+  hazardChoice.setAttribute("class", "hazard-choice");
+  parent.appendChild(hazardChoice);
+  return hazardChoice.appendChild(element);
 };
 
 const hazardChoices = (data) => {

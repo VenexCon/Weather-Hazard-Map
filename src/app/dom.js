@@ -12,10 +12,20 @@ const navButton = () => {
   });
 };
 
+/* ----------- */
+/* Formatters */
+/* --------- */
+
 const formatUnixDate = (string) => {
   let newdate = new Date(string * 1000);
   newdate.toLocaleString();
-  return format(newdate, `k:m dd/MM/yyyy`);
+  return format(newdate, `k:mm dd/MM/yyyy`);
+};
+
+const getHours = (value) => {
+  const hours = new Date(value * 1000).getHours();
+  console.log(hours);
+  return hours;
 };
 
 const removeHazards = () => {
@@ -25,7 +35,11 @@ const removeHazards = () => {
   }
 };
 
-const isHigh = (value) => {
+/* ----------------------- */
+/* Hazard Condition Funcs */
+/* --------------------- */
+
+const isHot = (value) => {
   //pass in the data response from fetchWeather();
   if (value > 20) {
     const highImg = document.createElement("i");
@@ -39,22 +53,61 @@ const isHigh = (value) => {
 };
 
 const isSunny = (value, time) => {
-  if (value < 50) {
+  if (value < 50 && time > 6 && time < 21) {
     const sunny = document.createElement("i");
     sunny.setAttribute("class", "fa-solid fa-sun");
     appendNewHazard(sunny);
   }
 };
-//create more funcs here,
 
+const isWindy = (value) => {
+  if (value > 20) {
+    const windIcon = document.createElement("i");
+    windIcon.setAttribute("class", "fa-solid fa-wind");
+    appendNewHazard(windIcon);
+  }
+  return;
+};
+
+const isSnowing = (string) => {
+  if (string.includes("snow")) {
+    const snowIcon = document.createElement("i");
+    snowIcon.setAttribute("class", "fa-solid fa-snowflake");
+    appendNewHazard(snowIcon);
+  }
+};
+
+const isLowVisibility = (value) => {
+  if (value < 100) {
+    const lowVisIcon = document.createElement("i");
+    lowVisIcon.setAttribute("class", "fa-solid fa-eye-slash");
+    appendNewHazard(lowVisIcon);
+  }
+};
+
+const isThunder = (string) => {
+  if (string.includes("storm")) {
+    thunderIcon = document.createElement("i");
+    thunderIcon.setAttribute("class", "fa-solid fa-cloud-bolt");
+  }
+};
+
+/* ----------------------------------------------------------- */
 //DOM Object for assigning and destructuring the Json.response.
+/* --------------------------------------------------------- */
+
 const domAppend = (data) => {
-  removeHazards();
-  isHigh(data.main.temp);
-  isSunny(data.clouds.all);
+  const hour = getHours(data.dt);
   const degree = `\u00B0C`;
   const farenheight = `\u00B0`;
   const dataIcon = `${data.weather[0].icon}`;
+  removeHazards();
+  isHot(data.main.temp);
+  isSunny(data.clouds.all, hour);
+  isWindy(data.wind.speed);
+  isSnowing(data.weather[0].main);
+  isLowVisibility(data.visibility);
+  isThunder(data.weather[0].main);
 
   //sets title
   const location = document.querySelector(".title");

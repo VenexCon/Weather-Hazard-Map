@@ -70,9 +70,11 @@ nav .nav-btn img.active {
   height: 90vh;
   background-color: #B7B6C1;
   transition: ease-in, 0.4s;
+  visibility: hidden;
 }
 .nav-links.active {
   right: 0;
+  visibility: visible;
 }
 .nav-links ul {
   display: flex;
@@ -115,4 +117,165 @@ nav .nav-btn img.active {
     justify-content: center;
     box-shadow: 0 4px 2px -2px gray;
   }
+}
+/* ---------------- */
+/* Search Container */
+/* ---------------- */
+.search-container {
+  height: 4rem;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.search-container label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search-container label input {
+  background-color: white;
+  height: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  text-align: center;
+  width: clamp(10rem, 20rem, 80vw);
+}
+.search-container label input:focus {
+  outline: 2px solid #A72608;
+}
+.search-container button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #187795;
+  outline: none;
+  border-radius: 50%;
+  align-self: center;
+  border: 2px solid #187795;
+  cursor: pointer;
+}
+.search-container button:focus {
+  border: 2px solid #F0C808;
+}
+.search-container button:hover, .search-container button:hover > * {
+  background-color: #A72608;
+}
+.search-container button i {
+  width: 1.5rem;
+  color: white;
+  font-size: 1.2rem;
+  margin: 0.25rem;
+}
+
+/* ---------------- */
+/* Main Container */
+/* ---------------- */
+.main {
+  /* ---------------- */
+  /* Weather Section */
+  /* -------------- */
+  border: 2px solid #A72608;
+  min-width: 80%;
+  width: 80%;
+  margin: auto;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  /* ---------------- */
+  /* Hazards Section */
+  /* -------------- */
+}
+.main .title {
+  width: 100%;
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
+  color: #F0C808;
+}
+.main .description {
+  width: 100%;
+  text-align: center;
+  color: #F0C808;
+  font-size: large;
+}
+.main .temp-container {
+  width: 100%;
+  height: 30%;
+  align-self: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+}
+.main .temp-container > * {
+  min-width: 4rem;
+  flex-grow: 1;
+  flex-basis: 33%;
+  text-align: center;
+}
+.main .temp-container .average {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main .temp-container .average :first-child {
+  font-size: larger;
+  font-weight: bold;
+  color: #B7B6C1;
+}
+.main .temp-container .average :nth-child(2) {
+  font-weight: bold;
+  font-size: larger;
+  flex-grow: 1;
+}
+.main .temp-container .medians {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main .temp-container .medians h3 > p {
+  color: #B7B6C1;
+}
+.main .temp-container .weather-icons {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+.main .hazards-container {
+  border: 2px solid black;
+  width: 100%;
+  display: flex;
+  max-height: 33vh;
+  flex-wrap: wrap;
+}
+.main .hazards-container .hazard-list {
+  border: 2px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+.main .hazards-container .hazard-list > * {
+  border: dashed 2px yellow;
+  flex-grow: 1;
+  width: clamp(4rem, 25%, 100%);
+  flex-wrap: wrap;
+}
+.main .hazards-container .hazard-list .hazard-choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main .hazards-container .hazard-list .hazard-choice img {
+  width: 50%;
+  border: 2px solid red;
+  color: #F0C808;
+}
+.main .hazards-container .hazard-list .hazard-choice i {
+  color: #8ac9df;
+  font-size: 4rem;
+  border: 2px solid black;
 }/*# sourceMappingURL=style.css.map */

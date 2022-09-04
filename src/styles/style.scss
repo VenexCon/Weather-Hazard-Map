@@ -224,7 +224,7 @@ nav{
     /* ---------------- */
     /* Weather Section */
     /* -------------- */
-    border: 2px solid $detail-2;
+    //border: 2px solid $detail-2;
     min-width: 80%;
     width: clamp(80%,80%,80%);
     margin: auto;
@@ -343,7 +343,7 @@ nav{
                 }
 
                 i {
-                    color: $ice ;
+                    color: $detail-2 ;
                     font-size: 4rem;
                     display: block;
                     //border: 2px solid black;
@@ -352,7 +352,7 @@ nav{
                 .tooltip {
                     background-color: $detail-2;                   
                     display: inline-block;
-                    width: 80%;
+                    width: 50%;
                     height: fit-content;
                     border-radius: 10px;
                     top: 0;
@@ -371,6 +371,7 @@ nav{
                         &.active {
                                 height: fit-content;
                                 opacity: 1;
+                                padding: 0.25rem;
                                 //border: 2px dashed $detail;
                             }
                     }

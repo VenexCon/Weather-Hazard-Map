@@ -50,4 +50,25 @@ module.exports = {
       template: `src/template.html`,
     }),
   ],
+  resolve: {
+    alias: {
+      path: require.resolve("path-browserify"),
+    },
+    fallback: {
+      fs: false,
+      tls: false,
+      net: false,
+      path: false,
+      zlib: false,
+      http: false,
+      https: false,
+      stream: false,
+      buffer: false,
+      crypto: false,
+      url: false,
+      vm: false,
+      querystring: false,
+      "crypto-browserify": require.resolve("crypto-browserify"), //if you want to use this module also don't forget npm i crypto-browserify
+    },
+  },
 };

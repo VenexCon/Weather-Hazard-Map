@@ -39,18 +39,57 @@ const removeHazards = () => {
 /* Hazard Condition Funcs */
 /* --------------------- */
 
+const appendNewHazard = (element, string) => {
+  const parent = document.querySelector(".hazard-list");
+  const hazardChoice = document.createElement("div");
+  hazardChoice.setAttribute("class", "hazard-choice");
+  parent.appendChild(hazardChoice);
+
+  const tooltip = document.createElement("div");
+  tooltip.setAttribute("class", "tooltip");
+
+  const tooltipText = document.createElement("div");
+  tooltipText.setAttribute("class", "tooltip-text");
+  tooltipText.textContent = `${string}`;
+  tooltip.appendChild(tooltipText);
+  hazardChoice.appendChild(element);
+  hazardChoice.appendChild(tooltip);
+};
+
+const hazardChoices = (data) => {
+  const average = document.querySelector("#averageBox");
+  const high = document.querySelector(".data-high");
+  const low = document.querySelector(".data-low");
+  const feelsLike = document.querySelector(".data-feels");
+  const humidity = document.querySelector(".data-humid");
+};
+
+/* const createToolTip = (string, element) => {
+  const tooltip = document.createElement("div");
+  tooltip.setAttribute("class", "tooltip");
+
+  const tooltipText = document.createElement("div");
+  tooltipText.setAttribute("class", "tooltip-text");
+  tooltipText.innerText = `${string}`;
+};
+ */
 const isHot = (value) => {
-  //pass in the data response from fetchWeather();
+  const coldString =
+    "cold temperatures. Ensure you check weather conditions for driving and tyre depth.";
+  const hotString =
+    "Warm Temperatures. Ensure you have an adequate amounts of water and sunblock for site working, heat stroke is a risk when working in warmer weather.";
   if (value > 20) {
     const highImg = document.createElement("i");
     highImg.setAttribute("class", "fa-solid fa-temperature-arrow-up");
-    appendNewHazard(highImg);
+    appendNewHazard(highImg, hotString);
   } else if (value < 10) {
     const lowImg = document.createElement("i");
     lowImg.setAttribute("class", "fa-solid fa-temperature-arrow-down");
-    return appendNewHazard(lowImg);
+    return appendNewHazard(lowImg, coldString);
   }
 };
+
+isHot(34);
 
 const isSunny = (value, time) => {
   if (value < 50 && time > 6 && time < 21) {
@@ -137,23 +176,6 @@ const domAppend = (data) => {
   //sets weather Icon
   const weatherIcon = document.querySelector(".weather-img");
   weatherIcon.src = `http://openweathermap.org/img/wn/${dataIcon}@2x.png`;
-};
-
-//Hazard Selection Funcs
-const appendNewHazard = (element) => {
-  const parent = document.querySelector(".hazard-list");
-  const hazardChoice = document.createElement("div");
-  hazardChoice.setAttribute("class", "hazard-choice");
-  parent.appendChild(hazardChoice);
-  return hazardChoice.appendChild(element);
-};
-
-const hazardChoices = (data) => {
-  const average = document.querySelector("#averageBox");
-  const high = document.querySelector(".data-high");
-  const low = document.querySelector(".data-low");
-  const feelsLike = document.querySelector(".data-feels");
-  const humidity = document.querySelector(".data-humid");
 };
 
 export { navButton, domAppend };

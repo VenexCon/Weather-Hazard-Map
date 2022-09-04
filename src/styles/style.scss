@@ -95,6 +95,7 @@ nav{
      background-color: $detail;
      transition: ease-in, 0.4s;
      visibility: hidden;
+     z-index: 1000;
     
 
      &.active {
@@ -303,45 +304,81 @@ nav{
     /* -------------- */
 
     .hazards-container{
-        border:2px solid black;
+        //border:2px solid black;
         width: 100%;
         display: flex;
-        max-height:33vh;
+        height:33vh;
         flex-wrap: wrap;
 
         .hazard-list{
-            border: 2px solid red;
+            //border: 2px solid red;
             display: flex;
             flex-wrap: wrap;
             width: 100%;
             height: 100%;
+            gap: 2rem;
+            
 
             >* {
-                border: dashed 2px yellow;
+                //border: dashed 2px yellow;
                 flex-grow: 1;
                 width:clamp(4rem, 25%, 100%);
                 flex-wrap: wrap;
             }
 
             .hazard-choice{
+                position: relative;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                cursor: pointer;
+                gap: 0.25rem;
+                
 
-                img {
+                img { // remove after styling
                     width: 50%;
-                    border: 2px solid red;
-                    color: #F0C808;
+                    //border: 2px solid black;
+                    
                 }
 
                 i {
                     color: $ice ;
                     font-size: 4rem;
-                    border: 2px solid black;
+                    display: block;
+                    //border: 2px solid black;
+                   
+                }
+                .tooltip {
+                    background-color: $detail-2;                   
+                    display: inline-block;
+                    width: 80%;
+                    height: fit-content;
+                    border-radius: 10px;
+                    top: 0;
+                    
+
+                    .tooltip-text{
+                        opacity: 0;
+                        height: 0;
+                        overflow: hidden;
+                        text-align: center;
+                        color: $contrast;
+                        transition: opacity 0.4s;
+                        border-radius: 10px;
+                        font-size: small;
+
+                        &.active {
+                                height: fit-content;
+                                opacity: 1;
+                                //border: 2px dashed $detail;
+                            }
+                    }
+
                 }
             }
         }
     }
+
 }
 

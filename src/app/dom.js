@@ -15,10 +15,12 @@ const navButton = () => {
 const displayToolTip = (e) => {
   const container = document.querySelector(".hazards-container");
   container.addEventListener("click", (e) => {
-    console.log(e.target.parentElement.querySelector(".tooltip-text"));
-    return e.target.parentElement
-      .querySelector(".tooltip-text")
-      .classList.toggle("active");
+    if (e.target.parentElement.classList.contains("hazard-choice")) {
+      return e.target.parentElement
+        .querySelector(".tooltip-text")
+        .classList.toggle("active");
+    }
+    return console.log(`no target`);
   });
 };
 

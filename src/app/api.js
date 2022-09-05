@@ -13,7 +13,7 @@ const keyStorage = (() => {
 const fetchWeather = async (location) => {
   try {
     const response = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${keyStorage.viewKey()}&units=metric`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${keyStorage.viewKey()}&units=metric`,
       { mode: "cors" }
     ); // fetch returns a promise
     let data = await response.json(); //.json() returns a promise.

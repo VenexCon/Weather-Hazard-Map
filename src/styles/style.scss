@@ -23,7 +23,7 @@ body{
     margin: auto;
     background-color: $primary;
     position: relative;
-   // overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 /* Nav Bar - Common  */
@@ -90,17 +90,18 @@ nav{
  .nav-links {
      border-radius: 5px;
      position: absolute;
-     //right:-100%;
+     right:-100%;
      height: 90vh;
      background-color: $detail;
      transition: ease-in, 0.4s;
      visibility: hidden;
-     z-index: 1000;
+     z-index: -1;
     
 
      &.active {
         right: 0;   
         visibility: visible;
+        z-index: 1000;
      }
 
      ul {

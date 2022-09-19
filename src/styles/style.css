@@ -71,11 +71,12 @@ nav .nav-btn img.active {
   background-color: #B7B6C1;
   transition: ease-in, 0.4s;
   visibility: hidden;
-  z-index: 1000;
+  z-index: -1;
 }
 .nav-links.active {
   right: 0;
   visibility: visible;
+  z-index: 1000;
 }
 .nav-links ul {
   display: flex;
@@ -269,6 +270,7 @@ nav .nav-btn img.active {
   align-items: center;
   cursor: pointer;
   gap: 0.25rem;
+  min-width: 10rem;
 }
 .main .hazards-container .hazard-list .hazard-choice img {
   width: 50%;

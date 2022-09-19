@@ -110,13 +110,13 @@ nav .nav-btn img.active {
 /* MOBILE NAV-links STYLING */
 /* ----------------- */
 @media only screen and (max-width: 600px) {
-  .nav-links {
+  .nav-links.active {
     width: 100vw;
   }
-  .nav-links ul {
+  .nav-links.active ul {
     width: 100%;
   }
-  .nav-links ul li {
+  .nav-links.active ul li {
     justify-content: center;
     box-shadow: 0 4px 2px -2px gray;
   }

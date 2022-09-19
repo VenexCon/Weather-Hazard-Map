@@ -66,16 +66,17 @@ nav .nav-btn img.active {
 .nav-links {
   border-radius: 5px;
   position: absolute;
-  right: -100%;
+  right: 0;
   height: 90vh;
+  width: 0;
+  overflow: hidden;
   background-color: #B7B6C1;
-  transition: ease-in, 0.4s;
-  visibility: hidden;
+  transition: height ease-in, 0.4s;
   z-index: -1;
 }
 .nav-links.active {
   right: 0;
-  visibility: visible;
+  width: 20vw;
   z-index: 1000;
 }
 .nav-links ul {

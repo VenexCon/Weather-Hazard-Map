@@ -90,18 +90,20 @@ nav{
  .nav-links {
      border-radius: 5px;
      position: absolute;
-     right:-100%;
+     right:0;
      height: 90vh;
+     width: 0;
+     overflow: hidden;
      background-color: $detail;
-     transition: ease-in, 0.4s;
-     visibility: hidden;
+     transition: height ease-in, 0.4s;
      z-index: -1;
     
 
      &.active {
         right: 0;   
-        visibility: visible;
+        width: 20vw;
         z-index: 1000;
+        
      }
 
      ul {

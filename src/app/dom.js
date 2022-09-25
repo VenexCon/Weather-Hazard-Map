@@ -93,6 +93,8 @@ const isHot = (value) => {
   }
 };
 
+
+
 const isSunny = (value, time) => {
   const sunString = `Sunny weather presents a risk of UV radiation, which damages the skin and can cause burns, blisters, with chronic exposure leading to skin cancer
                       it is advised to wear long sleeves, apply sunblock factor(30 minimum) and to reapply every two hours. Tinted safety glasses should be worn.`;

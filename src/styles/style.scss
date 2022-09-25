@@ -308,56 +308,53 @@ nav{
 
     .hazards-container{
         //border:2px solid black;
-        width: 100%;
+        width: 75%;
         display: flex;
-        height:33vh;
-        flex-wrap: wrap;
+        flex-direction: column;
+        min-height:33vh;
+        
 
         .hazard-list{
-            //border: 2px solid red;
+            border: 2px solid red;
             display: flex;
+            flex-direction: column;
             flex-wrap: wrap;
             width: 100%;
             height: 100%;
             gap: 2rem;
             
-
-            >* {
-                //border: dashed 2px yellow;
-                flex-grow: 1;
-                width:clamp(4rem, 25%, 100%);
-                flex-wrap: wrap;
-            }
-
+            
             .hazard-choice{
-                position: relative;
+                border: 2px dashed yellow;
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
+                flex-direction: row;
+                justify-content: flex-start;
                 align-items: center;
-                cursor: pointer;
                 gap: 0.25rem;
                 min-width: 10rem;
+                height: fit-content;
                 
-
-                img { // remove after styling
-                    width: 50%;
-                    //border: 2px solid black;
-                    
-                }
 
                 i {
                     color: $detail-2 ;
                     font-size: 4rem;
                     display: block;
-                    //border: 2px solid black;
+                    cursor: pointer;
+                
+                    &:hover{
+                     color: $contrast;
+                    }
+
+                    &:active{
+                        color: $contrast;
+                    }
                    
                 }
                 .tooltip {
                     background-color: $detail-2;                   
                     display: inline-block;
-                    width: 50%;
-                    height: fit-content;
+                    width: auto;
+                    height: auto;
                     border-radius: 10px;
                     top: 0;
                     
@@ -365,6 +362,7 @@ nav{
                     .tooltip-text{
                         opacity: 0;
                         height: 0;
+                        width: 0;
                         overflow: hidden;
                         text-align: center;
                         color: $contrast;
@@ -374,9 +372,12 @@ nav{
 
                         &.active {
                                 height: fit-content;
+                                width: fit-content;
                                 opacity: 1;
                                 padding: 0.25rem;
-                                //border: 2px dashed $detail;
+                                
+                                
+                                
                             }
                     }
 
@@ -387,3 +388,37 @@ nav{
 
 }
 
+/* --------------------*/
+/* --Mobile & tablets */
+/* ----------------- */
+
+@media only screen and (min-width:320px) and (max-width: 801px) {
+
+   .main {
+
+    .hazards-container {
+
+        .hazard-list{
+
+            .hazard-choice{
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+   }
+}
+    
+
+
+@media (min-width:801px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:1025px) {
+    /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width:1281px) {
+    /* hi-res laptops and desktops */
+}

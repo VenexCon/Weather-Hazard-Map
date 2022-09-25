@@ -3,5 +3,5 @@ import { navButton, displayToolTip } from "./app/dom";
 import { fetchWeather } from "./app/api";
 
 navButton();
-fetchWeather(`london`);
+fetchWeather(`barrow`);
 displayToolTip(Event);

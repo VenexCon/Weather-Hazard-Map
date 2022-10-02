@@ -252,6 +252,13 @@ nav{
         font-size: large;
     }
 
+    .time-container {
+        *{
+            color: $contrast;
+            
+        }
+    }
+
     .temp-container{
         width: 100%;
         height: 30%;
@@ -315,7 +322,7 @@ nav{
         
 
         .hazard-list{
-            border: 2px solid red;
+           // border: 2px solid red;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
@@ -325,12 +332,12 @@ nav{
             
             
             .hazard-choice{
-                border: 2px dashed yellow;
+                //border: 2px dashed yellow;
                 display: flex;
                 flex-direction: row;
                 justify-content: flex-start;
                 align-items: center;
-                gap: 0.25rem;
+                gap: 1rem;
                 min-width: 10rem;
                 height: fit-content;
                 

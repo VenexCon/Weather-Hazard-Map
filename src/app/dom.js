@@ -1,4 +1,3 @@
-import { fetchWeather } from "./api";
 import format from "date-fns/format";
 
 const navButton = () => {
@@ -36,7 +35,6 @@ const formatUnixDate = (string) => {
 
 const getHours = (value) => {
   const hours = new Date(value * 1000).getHours();
-  console.log(hours);
   return hours;
 };
 
@@ -93,8 +91,6 @@ const isHot = (value) => {
   }
 };
 
-
-
 const isSunny = (value, time) => {
   const sunString = `Sunny weather presents a risk of UV radiation, which damages the skin and can cause burns, blisters, with chronic exposure leading to skin cancer
                       it is advised to wear long sleeves, apply sunblock factor(30 minimum) and to reapply every two hours. Tinted safety glasses should be worn.`;
@@ -147,12 +143,12 @@ const isThunder = (string) => {
 };
 
 /* ----------------------------------------------------------- */
-//DOM Object for assigning and destructuring the Json.response.
+//DOM Object for assigning and destructuring the Daily Forecast .
 /* --------------------------------------------------------- */
 
 const domAppend = (data) => {
   const hour = getHours(data.dt);
-  console.log(hour);
+
   const degree = `\u00B0C`;
   const farenheight = `\u00B0`;
   const dataIcon = `${data.weather[0].icon}`;
@@ -166,7 +162,7 @@ const domAppend = (data) => {
 
   //sets title
   const location = document.querySelector(".title");
-  console.log(data.name);
+
   location.innerText = `${data.name}, ${data.sys.country}`;
 
   //sets weather description
@@ -195,3 +191,7 @@ const domAppend = (data) => {
 };
 
 export { navButton, domAppend, displayToolTip };
+
+/* ----------------------------------------------------------- */
+//DOM Object for assigning and destructuring the FiveDayForecast.
+/* --------------------------------------------------------- */

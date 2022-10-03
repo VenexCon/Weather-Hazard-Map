@@ -16,11 +16,10 @@ const fetchWeather = async (location) => {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=${keyStorage.viewKey()}&units=metric`,
       { mode: "cors" }
-    ); // fetch returns a promise
-    let data = await response.json(); //.json() returns a promise.
-    console.log(data);
+    );
+    let data = await response.json();
     const forecast = fetchFiveForecast(data.coord.lat, data.coord.lon);
-    return domAppend(data); // if you try and return data, it is called prior to awaiting
+    return domAppend(data);
   } catch (error) {
     console.log(error);
     alert(`Location Not Found`);
@@ -33,7 +32,7 @@ const fetchFiveForecast = async (lat, lon) => {
       `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${keyStorage.viewKey()}`,
       { mode: "cors" }
     );
-    const data = response.json();
+    const data = await response.json();
     console.log(data);
     return data;
   } catch (error) {
@@ -53,4 +52,4 @@ form.addEventListener("submit", (e) => {
   fetchFiveForecast(getInput(e));
 });
 
-export { fetchWeather };
+export { fetchWeather, fetchFiveForecast };

@@ -227,7 +227,7 @@ nav{
     /* ---------------- */
     /* Weather Section */
     /* -------------- */
-    //border: 2px solid $detail-2;
+    border: 2px solid $detail-2;
     min-width: 80%;
     width: clamp(80%,80%,80%);
     margin: auto;
@@ -306,6 +306,36 @@ nav{
             display: flex;
             justify-content: center;
             justify-items: center;
+        }
+    }
+
+    /* ------------------- */
+    /* Forecats Container */
+    /* ----------------- */
+
+    .forecast-container{
+        border: dashed 2px $contrast;
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        
+        .weekly-container {
+            border: #A72608 2px solid;
+            display: flex;
+            flex-direction: row;
+            min-height: 10rem;
+            min-width: 100%;
+
+
+            .day {
+                border: 2px solid black;
+                min-height: 100%;
+                flex-grow: 1;
+            }
+
         }
     }
 
